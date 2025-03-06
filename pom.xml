@@ -26,6 +26,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+             
+        <dependency>
+           <groupId>org.webjars</groupId>
+           <artifactId>jquery</artifactId>
+           <version>3.7.1</version> <!-- Use the latest version available -->
+       </dependency>
 
 
         <!-- 添加thymeleaf为了动态解析html-->
