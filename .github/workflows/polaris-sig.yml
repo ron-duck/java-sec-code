@@ -16,8 +16,8 @@ jobs:
     - name: Setup Java JDK
       uses: actions/setup-java@v5
       with:
-        java-version: 21
-        distribution: temurin
+        java-version: 17
+        distribution: microsoft
         cache: maven
     - name: Polaris Scan
       if: ${{ github.event_name != 'pull_request' }}
