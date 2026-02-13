@@ -25,8 +25,7 @@ jobs:
       with:
         polaris_server_url: ${{ vars.POLARIS_SERVERURL }}
         polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
-        polaris_assessment_types: 'SAST,SCA'
-        # polaris_test_sca_type: 'SCA-SIGNATURE'
+        polaris_assessment_types: SAST,SCA
         polaris_application_name: RAF-ACME-JSC
         polaris_prComment_enabled: 'true'
         polaris_reports_sarif_create: 'true'
@@ -34,11 +33,11 @@ jobs:
         coverity_build_command: mvn -B -DskipTests package
         coverity_clean_command: mvn -B clean        
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        include_diagnostics: false
-#    - name: Save Logs
-#      if: always()
-#      uses: actions/upload-artifact@v4
-#      with:
-#        name: bridge-logs
-#        path: ${{ github.workspace }}/.bridge
-#        include-hidden-files: true
+        include_diagnostics: true
+    - name: Save Logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: bridge-logs
+        path: ${{ github.workspace }}/.bridge
+        include-hidden-files: true
