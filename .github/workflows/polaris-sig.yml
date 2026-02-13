@@ -21,13 +21,13 @@ jobs:
         cache: maven
     - name: Polaris Scan
       if: ${{ github.event_name != 'pull_request' }}
-      uses: blackduck-inc/black-duck-security-scan@v2.0.0
+      uses: blackduck-inc/black-duck-security-scan@v2.7.1
       with:
         polaris_server_url: ${{ vars.POLARIS_SERVERURL }}
         polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
         polaris_assessment_types: 'SCA'
         polaris_test_sca_type: 'SCA-SIGNATURE'
-        polaris_application_name: RAF-ACME_LABS
+        polaris_application_name: RAF-ACME-JSC
         polaris_prComment_enabled: 'true'
         polaris_reports_sarif_create: 'true'
         polaris_upload_sarif_report: 'true'
